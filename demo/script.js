@@ -7,9 +7,13 @@
       delete fragment.dataset.baseURI;
     });
     [...clone.querySelectorAll('script')].forEach(script => {
-        script.setAttribute('src', script.getAttribute('data-src-'));
-        script.removeAttribute('data-src');
-        script.removeAttribute('data-src-');
+      let src = script.getAttribute('data-src-');
+      script.setAttribute('src', src);
+      if (src === '' || src === 'null') {
+        script.removeAttribute('src');
+      }
+      script.removeAttribute('data-src');
+      script.removeAttribute('data-src-');
     });
     return clone;
   }
@@ -35,6 +39,15 @@
     container.hidden = false;
     originalHTML = textarea.value;
     container.innerHTML = originalHTML.trim();
+
+    [...container.querySelectorAll('script')].forEach((script) => {
+      let newScript = document.createElement('script');
+
+      [...script.attributes]
+        .forEach(attr => newScript.setAttribute(attr.name, attr.value));
+      newScript.text = script.text;
+      script.parentNode.replaceChild(newScript, script);
+    });
   });
 
 })();
