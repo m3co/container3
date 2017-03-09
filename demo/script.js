@@ -1,11 +1,25 @@
 'use strict';
 (() => {
+  // see #1
+  function preformat(element) {
+    let clone = document.importNode(element, true);
+    [...clone.querySelectorAll('x-fragment')].forEach(fragment => {
+      delete fragment.dataset.baseURI;
+    });
+    [...clone.querySelectorAll('script')].forEach(script => {
+        script.setAttribute('src', script.getAttribute('data-src-'));
+        script.removeAttribute('data-src');
+        script.removeAttribute('data-src-');
+    });
+    return clone;
+  }
+
   let cf = document.currentFragment;
   let edit = cf.querySelector('[data-container3-edit]');
   let container = cf.querySelector('[data-container3]');
   let form = cf.querySelector('[data-container3-form]');
   let textarea = form.querySelector('textarea');
-  let originalHTML = container.innerHTML.trim();
+  let originalHTML = preformat(container).innerHTML.trim();
 
   edit.addEventListener('click', () => {
     edit.hidden = true;
@@ -19,8 +33,8 @@
     edit.hidden = false;
     form.hidden = true;
     container.hidden = false;
-    container.innerHTML = textarea.value;
-    originalHTML = container.innerHTML.trim();
+    originalHTML = textarea.value;
+    container.innerHTML = originalHTML.trim();
   });
 
 })();
