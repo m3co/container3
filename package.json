@@ -1,0 +1,35 @@
+{
+  "name": "container3",
+  "version": "0.0.1",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "gulp --port 9010",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m3co/container3.git"
+  },
+  "author": "Andres Rios <rianby64@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m3co/container3/issues"
+  },
+  "homepage": "https://github.com/m3co/container3#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-connect": "^5.0.0",
+    "gulp-csslint": "^1.0.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-file-include": "^1.0.0",
+    "gulp-htmlhint": "^0.3.1",
+    "gulp-if": "^2.0.2",
+    "gulp-jsdoc3": "^1.0.1",
+    "yargs": "^7.0.1"
+  }
+}
