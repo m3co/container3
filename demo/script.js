@@ -1,7 +1,5 @@
 'use strict';
-
-(() => {
-  let cf = document.currentFragment;
+document.currentFragment.loaded.then((cf) => {
   let edit = cf.querySelector('[data-container3-edit]');
   let container = cf.querySelector('[data-container3]');
   let form = cf.querySelector('[data-container3-form]');
@@ -34,4 +32,4 @@
     // });
   });
 
-})();
+});

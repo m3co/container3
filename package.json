@@ -1,7 +1,6 @@
 {
   "name": "container3",
   "version": "0.0.1",
-  "description": "",
   "main": "gulpfile.js",
   "scripts": {
     "prestart": "npm install",
@@ -32,5 +31,6 @@
     "gulp-if": "^2.0.2",
     "gulp-jsdoc3": "^1.0.1",
     "yargs": "^7.0.1"
-  }
+  },
+  "description": ""
 }
