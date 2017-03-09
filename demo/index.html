@@ -20,29 +20,9 @@
       margin-bottom: 16px;
     }
   </style>
+  <script src="/bower_components/pseudoimport-html/fragment-ce.js"></script>
 </head>
 <body>
-  <button class="button--edit" type="button" data-container3-edit>
-    Edit
-  </button>
-  <div class="container3" data-container3>
-    <h1>Hello, World!</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <x-fragment src="fragment.html"></x-fragment>
-    <script>
-      console.log('inline script');
-    </script>
-    <script src="/bower_components/pseudoimport-html/fragment-ce.js"></script>
-    <script src="external.js">
-    </script>
-
-  </div>
-  <form data-container3-form hidden>
-    <textarea></textarea>
-    <button type="submit">Save</button>
-  </form>
-
-
-  <script src="script.js"></script>
+  <x-fragment src="container.html"></x-fragment>
 </body>
 </html>
