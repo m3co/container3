@@ -10,13 +10,22 @@
       width: 100%;
       min-height: 300px;
     }
+
+    .container3 {
+      border: 1px solid #ccc;
+      padding: 16px 20px;
+    }
+
+    .button--edit {
+      margin-bottom: 16px;
+    }
   </style>
 </head>
 <body>
-  <button type="button" data-container3-edit>
+  <button class="button--edit" type="button" data-container3-edit>
     Edit
   </button>
-  <div data-container3>
+  <div class="container3" data-container3>
     <h1>Hello, World!</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <script>
@@ -24,6 +33,8 @@
     </script>
     <script>
       console.log('test2');
+    </script>
+    <script src="test.js">
     </script>
   </div>
   <form data-container3-form hidden>

@@ -21,9 +21,12 @@
     [...container.querySelectorAll('script')].forEach((script) => {
       let oldScript = script;
       let newScript = document.createElement('script');
+
+      [...oldScript.attributes]
+        .forEach(attr => newScript.setAttribute(attr.name, attr.value));
       newScript.text = oldScript.text;
       oldScript.parentNode.replaceChild(newScript, oldScript);
-    })
+    });
   });
 
 })();
