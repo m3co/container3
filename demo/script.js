@@ -18,6 +18,12 @@
     form.hidden = true;
     container.hidden = false;
     container.innerHTML = textarea.value;
+    [...container.querySelectorAll('script')].forEach((script) => {
+      let oldScript = script;
+      let newScript = document.createElement('script');
+      newScript.text = oldScript.text;
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    })
   });
 
 })();
