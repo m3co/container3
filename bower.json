@@ -1,0 +1,20 @@
+{
+  "name": "container3",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Andres Rios <rianby64@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/m3co/container3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pseudoimport-html": "^1.3.2"
+  }
+}

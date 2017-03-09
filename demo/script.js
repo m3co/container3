@@ -5,11 +5,12 @@
   let container = document.querySelector('[data-container3]');
   let form = document.querySelector('[data-container3-form]');
   let textarea = form.querySelector('textarea');
+  let originalHTML = container.innerHTML.trim();
   edit.addEventListener('click', () => {
     edit.hidden = true;
     form.hidden = false;
     container.hidden = true;
-    textarea.value = container.innerHTML.trim();
+    textarea.value = originalHTML;
   });
 
   form.addEventListener('submit', (e) => {
@@ -18,7 +19,9 @@
     form.hidden = true;
     container.hidden = false;
     container.innerHTML = textarea.value;
+    originalHTML = container.innerHTML.trim();
     [...container.querySelectorAll('script')].forEach((script) => {
+      console.log(script);
       let oldScript = script;
       let newScript = document.createElement('script');
 
