@@ -1,7 +1,7 @@
 'use strict';
 
 var table = d3.select('#example-table');
-fetch('data.json').then(function (response) {
+fetch('/demo/fragments/table3/data.json').then(function (response) {
   return response.json();
 }).then(function (json) {
   var data = json.data;

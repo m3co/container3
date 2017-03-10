@@ -81,23 +81,47 @@
 
 @import "demo/table";
 
-.container {
-  width: 1200px;
-  max-width: 100%;
-  margin: 0 auto;
+html {
+  box-sizing: border-box;
+}
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
 }
 
 textarea {
-  min-height: 300px;
   width: 100%;
+  border-color: #ccc;
+  vertical-align: top;
+  margin-bottom: 8px;
 }
 
 .container3 {
-  border: 1px solid #ccc;
+  width: 100%;
   padding: 16px 20px;
+  position: relative;
+  .mdl-data-table {
+    width: 100%;
+  }
 }
 
-.button--edit {
-  margin-bottom: 8px;
-  margin-top: 32px;
+.data-container3__form {
+  height: 100%;
+  textarea {
+    height: calc(100% - #{36px + 8px});
+  }
+}
+
+.data-container3__edit {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 3px 4px;
 }
