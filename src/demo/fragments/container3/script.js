@@ -20,15 +20,15 @@
 
   let cf = document.currentFragment;
   let edit = cf.querySelector('[data-container3-edit]');
-  let container = cf.querySelector('[data-container3]');
+  let content = cf.querySelector('[data-container3-content]');
   let form = cf.querySelector('[data-container3-form]');
   let textarea = form.querySelector('textarea');
-  let originalHTML = preformat(container).innerHTML.trim();
+  let originalHTML = preformat(content).innerHTML.trim();
 
   edit.addEventListener('click', () => {
     edit.hidden = true;
     form.hidden = false;
-    container.hidden = true;
+    content.hidden = true;
     textarea.value = originalHTML;
   });
 
@@ -36,11 +36,11 @@
     e.preventDefault();
     edit.hidden = false;
     form.hidden = true;
-    container.hidden = false;
+    content.hidden = false;
     originalHTML = textarea.value;
-    container.innerHTML = originalHTML.trim();
+    content.innerHTML = originalHTML.trim();
 
-    [...container.querySelectorAll('script')].forEach((script) => {
+    [...content.querySelectorAll('script')].forEach((script) => {
       let newScript = document.createElement('script');
 
       [...script.attributes]

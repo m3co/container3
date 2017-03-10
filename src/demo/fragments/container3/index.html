@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 
-<button class="button--edit" type="button" data-container3-edit>
-  Edit
-</button>
-
-<div class="container3" data-container3>
-  <x-fragment src="/demo/fragments/hello-world/index.html"></x-fragment>
+<div data-container3 class="container3">
+  <button data-container3-edit class="data-container3__edit" type="button">
+    Edit
+  </button>
+  <div data-container3-content>
+    <x-fragment src="/demo/fragments/hello-world/index.html"></x-fragment>
+  </div>
+  <form data-container3-form hidden>
+    <textarea></textarea>
+    <button type="submit">Save</button>
+  </form>
 </div>
-
-<form data-container3-form hidden>
-  <textarea></textarea>
-  <button type="submit">Save</button>
-</form>
 
 <script src="script.js"></script>
