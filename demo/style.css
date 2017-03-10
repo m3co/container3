@@ -1,6 +1,6 @@
 textarea {
-  width: 100%;
   min-height: 300px;
+  width: 100%;
 }
 
 .container3 {
@@ -9,5 +9,6 @@ textarea {
 }
 
 .button--edit {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  margin-top: 32px;
 }
