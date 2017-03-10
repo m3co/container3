@@ -30,19 +30,21 @@
   editBtn.addEventListener('click', () => {
     container.style.height = container.offsetHeight + 'px';
     editBtn.hidden = true;
+    deleteBtn.hidden = true;
     form.hidden = false;
     content.hidden = true;
     textarea.value = originalHTML;
   });
 
   deleteBtn.addEventListener('click', () => {
-    deleteBtn.closest('.mdl-cell').remove();
+    confirm('Delete?') && deleteBtn.closest('.mdl-cell').remove();
   });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     container.style.height = '';
     editBtn.hidden = false;
+    deleteBtn.hidden = false;
     form.hidden = true;
     content.hidden = false;
     originalHTML = textarea.value;
