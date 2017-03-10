@@ -102,7 +102,7 @@ textarea {
 
 .container3 {
   width: 100%;
-  padding: 16px 20px;
+  padding: 32px 20px;
   position: relative;
   .mdl-data-table {
     width: 100%;
@@ -117,11 +117,32 @@ textarea {
 }
 
 .data-container3__edit {
+}
+
+.data-container3-button {
   position: absolute;
-  right: 0;
   top: 0;
-  background-color: transparent;
   border: none;
-  cursor: pointer;
   padding: 3px 4px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.data-container3-button__delete {
+  right: 32px;
+  color: #f44336;
+}
+
+.data-container3-button__edit {
+  right: 0;
+  color: #2196f3;
+}
+
+.mdl-textfield--add-cell {
+  width: 30px;
+}
+
+.mdl-textfield__input--add-cell {
+  text-align: center;
+  border-color: #fff;
 }

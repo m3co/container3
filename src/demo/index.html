@@ -11,19 +11,35 @@
   <script src="/bower_components/pseudoimport-html/fragment-ce.js"></script>
 </head>
 <body>
-  <div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--9-col">
-      <x-fragment src="fragments/container3/index.html"></x-fragment>
+  <div class="mdl-layout">
+  <header class="mdl-layout__header mdl-layout__header--scroll">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Container3</span>
+      <div class="mdl-layout-spacer"></div>
+      <x-fragment src="fragments/add-cell/index.html"></x-fragment>
     </div>
-    <div class="mdl-cell mdl-cell--3-col">
-      <x-fragment src="fragments/container3/index.html"></x-fragment>
+  </header>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <div class="mdl-grid" mdl-grid>
+        <div class="mdl-cell mdl-cell--9-col">
+          <x-fragment src="fragments/container3/index.html"></x-fragment>
+        </div>
+        <div class="mdl-cell mdl-cell--3-col">
+          <x-fragment src="fragments/container3/index.html"></x-fragment>
+        </div>
+        <div class="mdl-cell mdl-cell--3-col">
+          <x-fragment src="fragments/container3/index.html"></x-fragment>
+        </div>
+        <div class="mdl-cell mdl-cell--4-col">
+          <x-fragment src="fragments/container3/index.html"></x-fragment>
+        </div>
+      </div>
     </div>
-    <div class="mdl-cell mdl-cell--3-col">
-      <x-fragment src="fragments/container3/index.html"></x-fragment>
-    </div>
-    <div class="mdl-cell mdl-cell--4-col">
-      <x-fragment src="fragments/container3/index.html"></x-fragment>
-    </div>
-  </div>
+  </main>
+</div>
+<script>
+
+</script>
 </body>
 </html>

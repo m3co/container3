@@ -20,24 +20,29 @@
 
   let cf = document.currentFragment;
   let container = cf.querySelector('[data-container3]');
-  let edit = cf.querySelector('[data-container3-edit]');
+  let editBtn = cf.querySelector('[data-container3-edit]');
+  let deleteBtn = cf.querySelector('[data-container3-delete]');
   let content = cf.querySelector('[data-container3-content]');
   let form = cf.querySelector('[data-container3-form]');
   let textarea = form.querySelector('textarea');
   let originalHTML = preformat(content).innerHTML.trim();
 
-  edit.addEventListener('click', () => {
+  editBtn.addEventListener('click', () => {
     container.style.height = container.offsetHeight + 'px';
-    edit.hidden = true;
+    editBtn.hidden = true;
     form.hidden = false;
     content.hidden = true;
     textarea.value = originalHTML;
   });
 
+  deleteBtn.addEventListener('click', () => {
+    deleteBtn.closest('.mdl-cell').remove();
+  });
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     container.style.height = '';
-    edit.hidden = false;
+    editBtn.hidden = false;
     form.hidden = true;
     content.hidden = false;
     originalHTML = textarea.value;
