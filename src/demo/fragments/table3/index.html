@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<table class="mdl-data-table" id="example-table">
-  <caption>
-    <div class="mdl-textfield">
-      <input class="mdl-textfield__input" type="text" placeholder="filter" id="filter">
-    </div>
-  </caption>
-  <thead><tr></tr></thead>
-  <tbody></tbody>
-</table>
+<x-fragment
+  id="fetcher"
+  src="fetcher.html"
+  data-url="/demo/fragments/table3/data.json"></x-fragment>
+<x-fragment
+  src="/demo/fragments/table3/example-table.html"
+  data-from="fetcher"
+  data-sort="gender,-col"
+  data-filter="o"></x-fragment>
 <script src="/node_modules/d3/build/d3.min.js"></script>
 <script src="script.js"></script>
