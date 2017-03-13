@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<x-fragment
+  id="fetcher"
+  src="localhost:3000/fetcher.html"
+  data-url="http://localhost:3000/data.json"></x-fragment>
+<x-fragment
+  src="localhost:3000/example-table.html"
+  data-from="fetcher"
+  data-sort="gender,-col"
+  data-filter="o"></x-fragment>
+<script src="localhost:3000/node_modules/d3/build/d3.min.js"></script>
+<script src="localhost:3000/script.js"></script>
