@@ -23,17 +23,29 @@
     <main class="mdl-layout__content">
       <div class="page-content">
         <div class="mdl-grid" mdl-grid>
-          <div class="mdl-cell mdl-cell--9-col">
-            <x-fragment src="fragments/container3/index.html"></x-fragment>
+          <div class="mdl-cell mdl-cell--12-col">
+            <p>
+              To see how it work, run: <code>node server/server.js</code>
+            </p>
           </div>
-          <div class="mdl-cell mdl-cell--3-col">
-            <x-fragment src="fragments/container3/index.html"></x-fragment>
-          </div>
-          <div class="mdl-cell mdl-cell--3-col">
-            <x-fragment src="fragments/container3/index.html"></x-fragment>
-          </div>
-          <div class="mdl-cell mdl-cell--4-col">
-            <x-fragment src="fragments/container3/index.html"></x-fragment>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div data-container3 class="container3 mdl-card mdl-shadow--2dp">
+              <button data-container3-delete class="data-container3-button data-container3-button__delete" type="button">
+                <i class="material-icons">delete</i>
+              </button>
+              <button data-container3-edit class="data-container3-button data-container3-button__edit" type="button">
+                <i class="material-icons">settings</i>
+              </button>
+              <div data-container3-content>
+                <x-fragment src="//localhost:3000"></x-fragment>
+              </div>
+              <form data-container3-form class="data-container3__form" hidden>
+                <textarea></textarea>
+                <button class="mdl-button mdl-button--primary" type="submit">Save</button>
+              </form>
+            </div>
+
+            <script src="fragments/container3/script.js"></script>
           </div>
         </div>
       </div>
