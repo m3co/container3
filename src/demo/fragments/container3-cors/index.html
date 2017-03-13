@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<div data-container3 class="container3 mdl-card mdl-shadow--2dp">
+  <button data-container3-delete class="data-container3-button data-container3-button__delete" type="button">
+    <i class="material-icons">delete</i>
+  </button>
+  <button data-container3-edit class="data-container3-button data-container3-button__edit" type="button">
+    <i class="material-icons">settings</i>
+  </button>
+  <div data-container3-content>
+    <x-fragment src="http://localhost:3000"></x-fragment>
+  </div>
+  <form data-container3-form class="data-container3__form" hidden>
+    <textarea></textarea>
+    <button class="mdl-button mdl-button--primary" type="submit">Save</button>
+  </form>
+</div>
+
+<script src="script.js"></script>
