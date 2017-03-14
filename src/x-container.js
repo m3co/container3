@@ -6,56 +6,76 @@
 
   class HTMLXContainerElement extends HTMLElement {
 
-    constructor() {
-      super();
+    static get observedAttributes() {
+      return ['value', 'is-editable'];
     }
 
-    connectedCallback() {
+    constructor() {
+      super();
       const content = document.currentScript.ownerDocument.querySelector('template').content;
       const node = document.importNode(content, true);
 
       this.classList.add('x-container');
+
       this.editBtn = node.querySelector('[edit]');
       this.deleteBtn = node.querySelector('[delete]');
       this.content = node.querySelector('[content]');
       this.form = node.querySelector('[form]');
       this.textarea = this.form.querySelector('textarea');
-      this.originalHTML = preformat_(this.content).innerHTML.trim();
 
       this.editBtn.addEventListener('click', this.onEdit.bind(this));
       this.deleteBtn.addEventListener('click', this.onDelete.bind(this));
       this.form.addEventListener('submit', this.onSave.bind(this));
 
-      this.appendChild(node);
-    }
-
-    onEdit() {
-      this.style.height = this.offsetHeight + 'px';
-      this.form.hidden = false;
-      this.editBtn.hidden = true;
-      this.deleteBtn.hidden = true;
-      this.content.hidden = true;
-      this.textarea.value = this.originalHTML;
-    }
-
-    onSave(e) {
-      e.preventDefault();
       this.style.height = '';
       this.form.hidden = true;
       this.editBtn.hidden = false;
       this.deleteBtn.hidden = false;
       this.content.hidden = false;
-      this.originalHTML = this.textarea.value;
-      this.content.innerHTML = this.originalHTML.trim();
 
-      [...this.content.querySelectorAll('script')].forEach((script) => {
-        let newScript = document.createElement('script');
+      this.appendChild(node);
+    }
 
-        [...script.attributes]
-          .forEach(attr => newScript.setAttribute(attr.name, attr.value));
-        newScript.text = script.text;
-        script.parentNode.replaceChild(newScript, script);
-      });
+    connectedCallback() {
+      save_.call(this, this.getAttribute('value'));
+
+      let isEditable = this.getAttribute('is-editable');
+      this.isEditable_ = (isEditable && isEditable.length !== 0) ?
+        JSON.parse(isEditable) :
+        false;
+
+      this.isEditable_ && toggle_.call(this);
+    }
+
+    attributeChangedCallback(attr, oldValue, newValue) {
+    }
+
+    get value() {
+      this.value_;
+    }
+
+    set value(value) {
+      this.value_ = value;
+      this.setAttribute('value', this.value_);
+    }
+
+    get isEditable() {
+      this.isEditable_;
+    }
+
+    set isEditable(isEditable) {
+      this.isEditable_ = isEditable;
+      this.setAttribute('is-editable', this.isEditable_);
+    }
+
+    onEdit() {
+      toggle_.call(this);
+    }
+
+    onSave(e) {
+      e.preventDefault();
+      toggle_.call(this);
+      save_.call(this, this.textarea.value);
     }
 
     onDelete() {
@@ -78,6 +98,31 @@
       script.removeAttribute('data-src-');
     });
     return clone;
+  }
+
+  function toggle_() {
+    this.isEditable_ = !this.isEditable_;
+
+    this.form.hidden = !this.form.hidden;
+    this.editBtn.hidden = !this.editBtn.hidden;
+    this.deleteBtn.hidden = !this.deleteBtn.hidden;
+    this.content.hidden = !this.content.hidden;
+    this.style.height = this.style.height === '' ? this.offsetHeight + 'px' : '';
+  }
+
+  function save_(newValue) {
+    this.value_ = newValue.trim();
+    this.textarea.value = this.value_;
+    this.content.innerHTML = this.value_;
+
+    [...this.content.querySelectorAll('script')].forEach((script) => {
+      let newScript = document.createElement('script');
+
+      [...script.attributes]
+        .forEach(attr => newScript.setAttribute(attr.name, attr.value));
+      newScript.text = script.text;
+      script.parentNode.replaceChild(newScript, script);
+    });
   }
 
   if (!window[classAsString]) {
