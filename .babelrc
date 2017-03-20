@@ -1,4 +1,4 @@
 {
   "presets": ["es2015"],
-  "ignore": ["src/x-container.js"]
+  "ignore": ["src/x-container*.js"]
 }
