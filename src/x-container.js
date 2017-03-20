@@ -1,4 +1,4 @@
-(() => {
+document.currentFragment.loaded.then((fragment) => {
   'use strict';
 
   const classAsString = 'HTMLXContainerElement';
@@ -12,7 +12,7 @@
 
     constructor() {
       super();
-      const content = document.currentScript.ownerDocument.querySelector('template').content;
+      const content = fragment.querySelector('template').content;
       const node = document.importNode(content, true);
 
       this.classList.add('x-container');
@@ -130,4 +130,4 @@
     window.customElements.define(selector, HTMLXContainerElement);
   }
 
-})();
+});
