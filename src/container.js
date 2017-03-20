@@ -1,4 +1,4 @@
-(() => {
+(!window.HTMLXContainerElement) && (() => {
 
   class HTMLXContainerElement extends HTMLElement {
     constructor() {
@@ -7,8 +7,6 @@
   }
 
   window.customElements.define('x-container', HTMLXContainerElement);
-  if (!window.HTMLXContainerElement) {
-    window.HTMLXContainerElement = HTMLXContainerElement;
-  }
+  window.HTMLXContainerElement = HTMLXContainerElement;
 
 })();
