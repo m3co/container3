@@ -25,3 +25,16 @@ test(() => {
     }));
   }, "The container holds edit, content, form elements");
 }, "Hold a template with a clear set of features");
+
+promise_test(function() {
+  var container = document.createElement('x-container');
+  return container.templateReady.then(this.step_func((container) => {
+    var edit = container.querySelector('[edit=""]');
+    var content = container.querySelector('[content=""]');
+    var form = container.querySelector('[form=""]');
+
+    edit.dispatchEvent(new MouseEvent('click'));
+    assert_true(content.hidden, "Hide content after click on edit");
+    assert_false(form.hidden, "Unhide form after click on edit");
+  }));
+}, "A container can be edited");
