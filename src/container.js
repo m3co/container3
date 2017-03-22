@@ -28,6 +28,17 @@
       return template;
     });
 
+  function initTemplate(template) {
+    var edit = template.querySelector('[edit=""]');
+    var content = template.querySelector('[content=""]');
+    var form = template.querySelector('[form=""]');
+
+    edit.addEventListener('click', () => {
+      content.hidden = true;
+      form.hidden = false;
+    });
+  }
+
   class HTMLXContainerElement extends HTMLElement {
     constructor() {
       super();
@@ -36,6 +47,7 @@
           reject(reason);
         }).then((template) => {
           var clone = document.importNode(template, true);
+          initTemplate(clone);
           this.appendChild(clone);
           resolve(this);
         });
